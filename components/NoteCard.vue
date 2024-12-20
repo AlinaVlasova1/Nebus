@@ -2,7 +2,12 @@
 
 export default defineComponent({
   name: "NoteCard",
-  props: ['note']
+  props: ['note'],
+  methods: {
+    goToNoteEditPage() {
+      this.$router.push({ path: `/notes/${this.note.id}` });
+    }
+  }
 })
 </script>
 
@@ -14,6 +19,9 @@ export default defineComponent({
         <div v-for="(todo, index) in note.toDo">
           <span v-if="(index + 1) < 4">{{index+1}}.  {{todo.description}}</span>
         </div>
+      </div>
+      <div class="note-card__button-container">
+        <button class="note__button-edit" @click="goToNoteEditPage()">Редактировать</button>
       </div>
       <button class="note__button-delete" @click="$emit('triggeredDeleteWindow', note.id)">
         <img class="window__trash_bin" src="public/icon/trash_bin.svg" alt="trash_bin">
@@ -45,7 +53,24 @@ export default defineComponent({
   .note__button-delete {
     background-color: rgb(95, 134, 181);
     border: none;
+    margin-right: 0;
+  }
+
+  .note-card__button-container {
     margin-left: auto;
     margin-right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .note__button-edit {
+    background-color: #0d8901;
+    border: none;
+    color: white;
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    padding: 15px;
+    border-radius: 4px;
   }
 </style>
