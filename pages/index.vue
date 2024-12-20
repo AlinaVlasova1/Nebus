@@ -12,6 +12,11 @@ export default defineComponent({
     return {
       notesStore
     }
+  },
+  data() {
+    return {
+      isTriggeredCreateWindow: false as boolean
+    }
   }
 })
 </script>
@@ -20,12 +25,13 @@ export default defineComponent({
   <div class="main-block">
     <div class="main-block__buttons-style">
       <button class="main-block__button-delete">Удалить заметку</button>
-      <button  class="main-block__button-create">Создать заметку</button>
+      <button  class="main-block__button-create" @click="isTriggeredCreateWindow = true">Создать заметку</button>
     </div>
     <div class="main-block__notes" v-if="notesStore.notes.length > 0">
-      <NoteCard v-for="note in notesStore.notes" :key="note.id"></NoteCard>
+      <NoteCard v-for="note in notesStore.notes" :key="note.id" :note="note"></NoteCard>
     </div>
   </div>
+  <CreateNoteWindow v-if="isTriggeredCreateWindow" @close="isTriggeredCreateWindow = false"></CreateNoteWindow>
 </template>
 
 <style scoped>
