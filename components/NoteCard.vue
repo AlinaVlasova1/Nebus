@@ -15,7 +15,7 @@ export default defineComponent({
           <span v-if="(index + 1) < 4">{{index+1}}.  {{todo.description}}</span>
         </div>
       </div>
-      <button class="note__button-delete" @click="">
+      <button class="note__button-delete" @click="$emit('triggeredDeleteWindow', note.id)">
         <img class="window__trash_bin" src="public/icon/trash_bin.svg" alt="trash_bin">
       </button>
     </div>

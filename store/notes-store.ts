@@ -8,8 +8,10 @@ export const useNotesStore = defineStore('notesStore', {
     getters: {},
     actions: {
         addNewNote (note: INote) {
-            console.log('note', note);
             this.notes.push(note);
+        },
+        deleteNote (id: number) {
+            this.notes = this.notes.filter((note) => note.id !== id);
         }
     }
 })

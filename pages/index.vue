@@ -9,13 +9,22 @@ export default defineComponent({
   },
   setup() {
     const notesStore = useNotesStore();
+    const noteId = reactive({id: null as null | number})
     return {
-      notesStore
+      notesStore,
+      noteId
     }
   },
   data() {
     return {
-      isTriggeredCreateWindow: false as boolean
+      isTriggeredCreateWindow: false as boolean,
+      isTriggeredAgreementDeleteNoteWindow: false as boolean,
+    }
+  },
+  methods: {
+    openDeleteNoteWindow(id: number) {
+      this.isTriggeredAgreementDeleteNoteWindow = true;
+      this.noteId.id = id;
     }
   }
 })
@@ -27,10 +36,12 @@ export default defineComponent({
       <button  class="main-block__button-create" @click="isTriggeredCreateWindow = true">Создать заметку</button>
     </div>
     <div class="main-block__notes" v-if="notesStore.notes.length > 0">
-      <NoteCard v-for="note in notesStore.notes" :key="note.id" :note="note"></NoteCard>
+      <NoteCard v-for="note in notesStore.notes" :key="note.id" :note="note" @triggered-delete-window="openDeleteNoteWindow"></NoteCard>
     </div>
   </div>
   <CreateNoteWindow v-if="isTriggeredCreateWindow" @close="isTriggeredCreateWindow = false"></CreateNoteWindow>
+  <AgreementDeleteNoteWindow v-if="isTriggeredAgreementDeleteNoteWindow"
+  @close-deleteWindow="isTriggeredAgreementDeleteNoteWindow = false" :id="noteId.id"></AgreementDeleteNoteWindow>
 </template>
 
 <style scoped>
