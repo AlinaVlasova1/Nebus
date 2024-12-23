@@ -5,13 +5,26 @@ export const useNotesStore = defineStore('notesStore', {
     state: () => ({
            notes: [] as INote[],
     }),
-    getters: {},
+    getters: {
+        getNoteBuId: (state) => {
+            return (id: number) => state.notes.find((note) => note.id === id);
+        }
+    },
     actions: {
         addNewNote (note: INote) {
             this.notes.push(note);
         },
         deleteNote (id: number) {
             this.notes = this.notes.filter((note) => note.id !== id);
+        },
+        changeNote (note: INote) {
+            this.notes = this.notes.map((el) => {
+                if (el.id === note.id) {
+                    el = note;
+                }
+                return el;
+            });
+            console.log('change notes',this.notes);
         }
     }
 })
