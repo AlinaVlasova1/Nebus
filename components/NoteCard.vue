@@ -12,9 +12,9 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="note-card" >
+  <div class="note-card">
     <div class="note-card__inner">
-      <div>
+      <div class="note-card__description">
         <h1 class="note-card__title">{{note.title}}</h1>
         <div v-for="(todo, index) in note.toDo">
           <span v-if="(index + 1) < 4">{{index+1}}.  {{todo.description}}</span>
@@ -72,5 +72,57 @@ export default defineComponent({
     font-weight: 500;
     padding: 15px;
     border-radius: 4px;
+  }
+
+  @media (380px <= width <= 555px) {
+
+    .note-card__inner {
+      display: block;
+    }
+
+    .note-card__button-container {
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .note__button-delete {
+      margin-left: 10px;
+      display: inline-block;
+      height: 46px;
+      margin-top: 20px;
+    }
+
+    .window__trash_bin {
+      vertical-align: middle;
+    }
+  }
+
+  @media (0 <= width <= 380px) {
+
+    .note-card__inner {
+      display: block;
+    }
+
+    .note-card__button-container {
+      display: inline-block;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .note__button-edit {
+      width: 100%;
+    }
+
+    .note__button-delete {
+      margin-left: 0;
+      display: inline-block;
+      height: 46px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .window__trash_bin {
+      vertical-align: middle;
+    }
   }
 </style>

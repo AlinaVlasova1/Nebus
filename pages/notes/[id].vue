@@ -265,4 +265,115 @@ export default defineComponent({
     color: #fff;
     margin-left: 214px;
   }
+
+  @media (1378px <= width < 1499px) {
+
+    .note-page__buttons {
+      display: block;
+      margin-left: 214px;
+    }
+  }
+
+  @media (741px <= width <= 1378px) {
+
+    .note-page__title-block {
+      margin-left: 34px;
+    }
+
+    .note-page__todo {
+      margin-left: 0;
+    }
+
+    .note-page__button-add-todo {
+      margin-left: 34px;
+    }
+
+    .note-page__buttons {
+      display: block;
+      margin-left: 34px;
+    }
+  }
+
+  @media (643px <= width <= 741px) {
+
+    .note-page__title {
+      text-align: left;
+      margin-left: 34px;
+    }
+
+    .note-page__title-block {
+      margin-left: 34px;
+    }
+
+    .note-page__todo {
+      margin-left: 0;
+    }
+
+    .note-page__button-add-todo {
+      margin-left: 34px;
+    }
+
+    .note-page__buttons {
+      display: block;
+      margin-left: 34px;
+    }
+  }
+
+  @media (443px <= width <= 643px) {
+
+    .note-page__container {
+      width: 80%;
+    }
+
+    .note-page__title {
+      text-align: left;
+      margin-left: 34px;
+    }
+
+    .note-page__title-block {
+      margin-left: 34px;
+    }
+
+    .note-page__todo {
+      margin-left: 0;
+    }
+
+    .note-page__button-add-todo {
+      margin-left: 34px;
+    }
+
+    .note-page__buttons {
+      display: block;
+      margin-left: 34px;
+    }
+  }
+
+  @media (0 <= width <= 443px) {
+
+    .note-page__container {
+      width: 90%;
+    }
+
+    .note-page__title {
+      text-align: left;
+      margin-left: 34px;
+    }
+
+    .note-page__title-block {
+      margin-left: 34px;
+    }
+
+    .note-page__todo {
+      margin-left: 0;
+    }
+
+    .note-page__button-add-todo {
+      margin-left: 34px;
+    }
+
+    .note-page__buttons {
+      display: block;
+      margin-left: 34px;
+    }
+  }
 </style>

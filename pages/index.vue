@@ -70,4 +70,5 @@ export default defineComponent({
   .main-block__notes {
     margin-top: 20px;
   }
+
 </style>

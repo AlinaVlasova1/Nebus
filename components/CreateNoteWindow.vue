@@ -184,4 +184,32 @@ export default defineComponent({
     margin-left: auto;
     margin-right: 0;
   }
+
+@media (458px <= width < 940px) {
+  .window__inner {
+    width: 70%;
+  }
+}
+
+@media (0 <= width < 459px) {
+  .window__inner {
+    width: 70%;
+  }
+
+  .window__title {
+    text-align: left;
+  }
+
+  .window__buttons {
+    display: block;
+  }
+
+  .window__button-add {
+    width: 100%;
+  }
+
+  .window__button-create {
+    width: 100%;
+  }
+}
 </style>
