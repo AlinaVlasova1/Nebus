@@ -19,6 +19,6 @@ RUN npm run build
 
 EXPOSE 3000
 
-ENV NUXT_HOST='http://localhost'
+ENV NUXT_HOST=''
 
 CMD [ "npm", "run", "dev" ]
