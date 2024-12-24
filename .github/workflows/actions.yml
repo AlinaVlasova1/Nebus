@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  build_and_publish:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
           docker run -d --name nebus-container ghcr.io/alinavlasova1/nebus:latest
 
   Deploy:
-    needs: build_and_publish
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
