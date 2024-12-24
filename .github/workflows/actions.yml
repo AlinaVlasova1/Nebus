@@ -14,4 +14,4 @@ jobs:
           docker login  -p ${{ secrets.GITHUBTOKEN }} -u ${{ secrets.GITHUBNAME }} ghcr.io
           docker build . --file Dockerfile --tag ghcr.io/alinavlasova1/nebus:latest
           docker push ghcr.io/alinavlasova1/nebus:latest
-          docker run -t ghcr.io/alinavlasova1/nebus:latest
+          docker run -d --name nebus-container ghcr.io/alinavlasova1/nebus:latest
