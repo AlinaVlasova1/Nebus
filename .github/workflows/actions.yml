@@ -9,6 +9,7 @@ jobs:
     steps:
       -
         name: Build and push nebus
+        working-directory: nebus
         run: |
           docker build -t nebus .
           docker push nebus
