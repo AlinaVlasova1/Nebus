@@ -4,10 +4,13 @@ on:
   push:
 
 jobs:
-  build:
+  build_and_publish:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag nebus:latest
+        run: |
+          docker login --username ${{ secrets.GITHUBNAME }} --password ${{ secrets.GITHUBTOKEN }}
+          docker build . --file Dockerfile --tag ghcr.io/${{ secrets.GITHUBNAME }}/nebus:latest
+          docker push ghcr.io/${{ secrets.GITHUBNAME }}/nebus:latest
