@@ -1,15 +1,13 @@
-name: ci
+name: Docker Image CI
 
 on:
   push:
 
 jobs:
-  docker:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      -
-        name: Build and push nebus
-        working-directory: nebus
-        run: |
-          docker build -t nebus .
-          docker push nebus
+      - uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag nebus:latest
