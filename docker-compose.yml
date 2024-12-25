@@ -1,0 +1,5 @@
+services:
+  frontend:
+    container_name: frontend
+    image: ghcr.io/alinavlasova1/nebus:latest
+    restart: unless-stopped
