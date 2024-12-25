@@ -24,7 +24,6 @@ export const useNotesStore = defineStore('notesStore', {
                 }
                 return el;
             });
-            console.log('change notes',this.notes);
         }
     }
 })

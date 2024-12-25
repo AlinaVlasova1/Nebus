@@ -25,7 +25,6 @@ export default defineComponent({
       this.toDosArray = [...this.toDosArray.filter((el) => el.id !== id)];
     },
     createNewNote() {
-      console.log('createNewNote');
       const note = {
         id: this.notesStore.notes.length + 1,
         title: this.noteName,
@@ -33,7 +32,6 @@ export default defineComponent({
       }
       this.notesStore.addNewNote(note);
       this.$emit('close');
-      console.log('this.notesStore.notes', this.notesStore.notes);
     }
   }
 })
