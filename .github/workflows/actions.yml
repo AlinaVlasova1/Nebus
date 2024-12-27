@@ -32,4 +32,4 @@ jobs:
         # check this thread to understand why its needed:
         # <https://stackoverflow.com/a/70447517>
         run: |
-          docker run -it --rm -v "$PWD":/usr/src/app -p "4000:4000" starefossen/github-pages
+          docker run --rm -v "$PWD":/usr/src/app -p "4000:4000" starefossen/github-pages
